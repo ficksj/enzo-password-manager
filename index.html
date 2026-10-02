@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#090a0c" />
+    <meta name="description" content="Enzo is a local-first password manager for Windows. Keep your passwords encrypted, close at hand, and under your control." />
+    <meta property="og:title" content="Enzo — Your passwords. Close at hand." />
+    <meta property="og:description" content="A private password vault that lives in your Windows tray." />
+    <meta property="og:type" content="website" />
+    <title>Enzo — Your passwords. Close at hand.</title>
+    <link rel="icon" href="../src-tauri/icons/icon.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css?v=4" />
+    <script src="./main.js?v=4" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="Enzo home"><span class="brand-icon">E</span><span>enzo</span></a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#features">Features</a><a href="#security">Security</a><a href="https://github.com/ficksj/enzo-password-manager">Source</a>
+      </nav>
+      <div class="header-actions"><div class="language-switch" role="group" aria-label="Language"><button class="language-button active" data-language="en">EN</button><span>/</span><button class="language-button" data-language="ru">RU</button></div><a class="header-download" href="https://github.com/ficksj/enzo-password-manager/releases/latest">Download <span>↗</span></a></div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="live-dot"></span> PRIVATE BY DESIGN <span class="eyebrow-line"></span> WINDOWS</div>
+          <h1>Your passwords.<br /><span>Close at hand.</span></h1>
+          <p class="hero-description">A quiet, encrypted vault that lives in your system tray. Open it when you need it. Keep your data yours.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://github.com/ficksj/enzo-password-manager/releases/latest"><span class="windows-mark">⊞</span> Download for Windows <span class="button-arrow">↗</span></a>
+            <a class="button button-quiet" href="https://github.com/ficksj/enzo-password-manager">Explore on GitHub <span>→</span></a>
+          </div>
+          <div class="hero-meta"><span><i></i> Windows 10 / 11</span><span><i></i> No account required</span><span><i></i> Open source</span></div>
+        </div>
+
+        <div class="hero-visual" aria-label="Enzo vault application preview">
+          <div class="ambient-grid"></div>
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="preview-window">
+            <div class="preview-top"><div class="preview-brand"><span class="brand-icon mini">E</span> enzo <span class="preview-status"></span></div><div class="preview-controls"><span>−</span><span>×</span></div></div>
+            <div class="preview-body">
+              <div class="preview-heading"><div><small>YOUR VAULT / 04 ENTRIES</small><h3>Your passwords</h3></div><span class="encrypted-tag"><b></b> ENCRYPTED</span></div>
+              <div class="preview-search"><span>⌕</span> Search your vault... <kbd>⌘ K</kbd></div>
+              <div class="preview-tabs"><b>All items</b><span>Websites</span><span>Apps</span></div>
+              <div class="preview-entry"><span class="service-icon github-icon">GH</span><span class="service-copy"><b>GitHub</b><small>alex.morgan</small></span><span class="entry-copy">▣</span><span class="entry-chevron">↗</span></div>
+              <div class="preview-entry"><span class="service-icon notion-icon">N</span><span class="service-copy"><b>Notion</b><small>alex@studio.dev</small></span><span class="entry-copy">▣</span><span class="entry-chevron">↗</span></div>
+              <div class="preview-entry"><span class="service-icon figma-icon">F</span><span class="service-copy"><b>Figma</b><small>design@studio.dev</small></span><span class="entry-copy">▣</span><span class="entry-chevron">↗</span></div>
+              <div class="preview-add"><span>＋</span> Add a password</div>
+            </div>
+            <div class="preview-nav"><span class="selected">▤<small>Vault</small></span><span>✳<small>Generator</small></span><span>⚙<small>Settings</small></span></div>
+          </div>
+          <div class="float-chip chip-encryption"><span class="chip-icon">⌑</span><span><b>AES-256-GCM</b><small>Your vault, sealed</small></span><span class="chip-check">✓</span></div>
+          <div class="float-chip chip-hello"><span class="hello-glyph">◉</span><span><b>Windows Hello</b><small>You're verified</small></span><span class="hello-check">✓</span></div>
+          <div class="visual-caption"><span>01 / ENZO IN YOUR TRAY</span><span class="caption-rule"></span><span>ALWAYS WITHIN REACH</span></div>
+        </div>
+        <a class="scroll-cue" href="#features"><span></span> SCROLL TO EXPLORE</a>
+      </section>
+
+      <section class="trust-strip" aria-label="Enzo principles"><div><span class="trust-number">01</span><span>Encrypted on your device</span></div><div><span class="trust-number">02</span><span>Unlocked by you</span></div><div><span class="trust-number">03</span><span>No cloud, no account</span></div><div class="trust-end">YOUR KEYS STAY YOURS <span>↗</span></div></section>
+
+      <section class="features section-wrap" id="features">
+        <div class="section-intro"><div><p class="section-kicker">A BETTER PLACE FOR YOUR PASSWORDS</p><h2>Everything you need.<br /><span>Nothing you don't.</span></h2></div><p class="section-side-copy">Enzo keeps your everyday credentials organized, protected, and one click away, without getting in your way.</p></div>
+        <div class="feature-grid">
+          <article class="feature-card feature-large"><div class="feature-topline"><span>01 / VAULT</span><span class="feature-symbol">▤</span></div><div class="feature-illustration vault-illustration"><div class="vault-layer layer-back"></div><div class="vault-layer layer-front"><span class="tiny-lock">⌑</span><span class="layer-lines"><i></i><i></i><i></i></span></div><span class="illustration-spark">✳</span></div><h3>Your vault, just yours.</h3><p>Every password is encrypted locally before it touches disk. No account, no cloud copy, no one else holding the keys.</p><div class="feature-foot"><span>ARGON2ID</span><span>AES-256-GCM</span><span>LOCAL-FIRST</span></div></article>
+          <article class="feature-card"><div class="feature-topline"><span>02 / QUICK ACCESS</span><span class="feature-symbol">⌁</span></div><div class="mini-tray-art"><div class="tray-pop"><span class="tray-dot"></span><span class="tray-line"></span><span class="tray-line short"></span><span class="tray-button">Copy password</span></div><div class="tray-base"><i></i><i></i><i></i><b>◉</b></div></div><h3>There when you need it.</h3><p>A compact flyout from your system tray stays above your work, then slips away when you're done.</p><div class="feature-foot"><span>WINDOWS TRAY</span><span>ALWAYS ON TOP</span></div></article>
+          <article class="feature-card"><div class="feature-topline"><span>03 / UNLOCK</span><span class="feature-symbol">◎</span></div><div class="hello-art"><div class="hello-ring ring-a"></div><div class="hello-ring ring-b"></div><div class="fingerprint-art">◉</div><span class="hello-auth">VERIFIED <b>✓</b></span></div><h3>A touch, and you're in.</h3><p>Unlock with your Enzo PIN or use Windows Hello for device-bound biometric access.</p><div class="feature-foot"><span>WINDOWS HELLO</span><span>PIN FALLBACK</span></div></article>
+          <article class="feature-card"><div class="feature-topline"><span>04 / GENERATOR</span><span class="feature-symbol">✳</span></div><div class="generator-art"><div class="generated-string">rQ8!vN4#zK2@<span>_</span></div><div class="generator-meter"><i></i><i></i><i></i><i></i><i></i><b>STRONG</b></div><div class="generator-controls"><span>Length <b>20</b></span><span class="fake-slider"><i></i></span></div></div><h3>Strong by default.</h3><p>Generate secure, random passwords and tune length and character sets to fit every sign-up form.</p><div class="feature-foot"><span>8–64 CHARACTERS</span><span>CRYPTOGRAPHIC RNG</span></div></article>
+          <article class="feature-card"><div class="feature-topline"><span>05 / CLIPBOARD</span><span class="feature-symbol">▣</span></div><div class="clipboard-art"><div class="clipboard-row"><span class="copy-mark">✓</span><span>Password copied</span><small>00:14</small></div><div class="clipboard-progress"><i></i></div><div class="clipboard-clear"><span>Clipboard clears automatically</span><b>15 sec</b></div></div><h3>Copy. Paste. Gone.</h3><p>Copied passwords can be cleared automatically after your chosen interval to reduce exposure.</p><div class="feature-foot"><span>CONFIGURABLE TIMER</span><span>15 SEC DEFAULT</span></div></article>
+        </div>
+      </section>
+
+      <section class="security-section" id="security"><div class="security-inner section-wrap"><div class="security-copy"><p class="section-kicker">SECURITY IS THE FOUNDATION</p><h2>Private isn't a setting.<br /><span>It's the architecture.</span></h2><p>Enzo is designed to keep the vault on your Windows device. Your PIN derives the encryption key; Windows Hello can protect a device-bound copy for convenient unlock.</p><a class="text-link" href="https://github.com/ficksj/enzo-password-manager#security-model">Read the security model <span>↗</span></a></div><div class="security-diagram"><div class="diagram-head"><span>LOCAL ENCRYPTION FLOW</span><span class="diagram-live"><i></i> ON DEVICE</span></div><div class="diagram-node node-pin"><span class="node-icon">⌑</span><span><b>Your PIN</b><small>Never stored</small></span></div><div class="diagram-connector"><i></i><span>ARGON2ID</span><i></i></div><div class="diagram-node node-key"><span class="node-icon">◈</span><span><b>256-bit key</b><small>Held in memory while unlocked</small></span></div><div class="diagram-connector"><i></i><span>AES-256-GCM</span><i></i></div><div class="diagram-node node-vault"><span class="node-icon">▤</span><span><b>Encrypted vault</b><small>Stored locally on your device</small></span><span class="node-seal">SEALED</span></div><div class="diagram-foot"><span><i></i> NO REMOTE VAULT</span><span><i></i> KEY CLEARED ON LOCK</span></div></div></div></section>
+
+      <section class="extension-section section-wrap" id="extension"><div class="extension-visual"><div class="browser-window"><div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><span class="address-bar">github.com / your-passwords</span></div><div class="browser-content"><div class="fake-form"><span>Sign in</span><i></i><i></i><b>Continue</b></div><div class="extension-pop"><div class="extension-head"><span class="brand-icon mini">E</span><strong>enzo</strong><small>BRIDGE ONLINE</small></div><p>GitHub · alex.morgan</p><button>Fill credentials <span>↗</span></button></div></div></div><div class="extension-badge"><span>⌁</span> Chrome / Edge</div></div><div class="extension-copy"><p class="section-kicker">ENZO, IN YOUR BROWSER</p><h2>Your vault.<br /><span>Where you sign in.</span></h2><p>Use the Enzo companion extension to find matching logins, fill forms, generate passwords, and save new credentials back to your encrypted desktop vault.</p><div class="extension-actions"><a class="button button-primary" href="https://github.com/ficksj/enzo-password-manager/tree/main/extension"><span>⊞</span> Get the extension <span class="button-arrow">↗</span></a><a class="text-link" href="https://github.com/ficksj/enzo-password-manager#browser-extension-preview">View setup guide <span>↗</span></a></div><div class="extension-points"><span><b>01</b> Load unpacked</span><span><b>02</b> Paste bridge token</span><span><b>03</b> Fill and save</span></div></div></section>
+
+      <section class="steps-section section-wrap"><div class="steps-heading"><p class="section-kicker">GETTING STARTED</p><h2>Set up in a moment.</h2></div><div class="steps-grid"><article><span class="step-count">01</span><h3>Create your vault</h3><p>Choose a PIN. Enzo creates your encrypted local vault.</p></article><article><span class="step-count">02</span><h3>Add your logins</h3><p>Save websites, apps, and secure notes in one private place.</p></article><article><span class="step-count">03</span><h3>Stay in your flow</h3><p>Open Enzo from the tray, copy what you need, and get back to work.</p></article></div></section>
+
+      <section class="download-section"><div class="download-orbit orbit-left"></div><div class="download-orbit orbit-right"></div><div class="download-content"><p class="section-kicker">YOUR DESKTOP. YOUR VAULT.</p><h2>Keep Enzo<br />close at hand.</h2><p>Get the latest Windows release and take your passwords back to local.</p><div class="download-actions"><a class="button button-primary" href="https://github.com/ficksj/enzo-password-manager/releases/latest"><span class="windows-mark">⊞</span> Download for Windows <span class="button-arrow">↗</span></a><a class="msi-link" href="https://github.com/ficksj/enzo-password-manager/releases/latest">Need MSI? View all downloads <span>→</span></a></div><div class="download-foot"><span>WINDOWS 10 / 11</span><span>VERSION <b id="release-version">LATEST</b></span><span>OPEN SOURCE</span></div></div><div class="download-seal"><span>ENZO</span><b>E</b><small>PRIVATE BY DESIGN</small></div></section>
+
+      <section class="faq-section section-wrap"><div><p class="section-kicker">GOOD QUESTIONS</p><h2>Before you begin.</h2></div><div class="faq-list"><details><summary>Where is my vault stored?<span>+</span></summary><p>Your encrypted vault is saved in Enzo's local Windows application data directory. Enzo does not upload it to a server.</p></details><details><summary>Can I use Enzo without Windows Hello?<span>+</span></summary><p>Yes. Windows Hello is optional. You can create and unlock your vault with your Enzo PIN.</p></details><details><summary>Can I move my vault to another device?<span>+</span></summary><p>Encrypted backup and restore support is planned. Keep the current vault on its original device until backup support is available.</p></details><details><summary>Is Enzo open source?<span>+</span></summary><p>Yes. Review the source code, report an issue, or contribute on GitHub.</p></details></div></section>
+    </main>
+
+    <footer class="site-footer"><a class="wordmark" href="#top"><span class="brand-icon">E</span><span>enzo</span></a><span class="footer-note">LOCAL-FIRST PASSWORD MANAGER FOR WINDOWS</span><div><a href="https://github.com/ficksj/enzo-password-manager">GitHub</a><a href="https://github.com/ficksj/enzo-password-manager/releases">Releases</a><a href="https://github.com/ficksj/enzo-password-manager/blob/main/LICENSE">MIT License</a></div><small>© 2026 ENZO. PRIVATE BY DESIGN.</small></footer>
+  </body>
+</html>
