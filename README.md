@@ -6,6 +6,8 @@
 
 Secure vault, fast password generation, Windows Hello, and a compact tray flyout in one focused desktop app.
 
+[Product website](https://ficksj.github.io/enzo-password-manager/) · [Download latest release](https://github.com/ficksj/enzo-password-manager/releases/latest) · [View source](https://github.com/ficksj/enzo-password-manager)
+
 [![Build](https://github.com/ficksj/enzo-password-manager/actions/workflows/release.yml/badge.svg)](https://github.com/ficksj/enzo-password-manager/actions/workflows/release.yml)
 [![Latest Release](https://img.shields.io/github/v/release/ficksj/enzo-password-manager?display_name=tag&color=ff0033&label=release)](https://github.com/ficksj/enzo-password-manager/releases)
 [![License](https://img.shields.io/badge/license-MIT-ff0033.svg)](LICENSE)
