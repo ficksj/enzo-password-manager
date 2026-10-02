@@ -20,13 +20,13 @@ pub struct VaultEntry {
 }
 
 #[derive(Clone, Default, Serialize, Deserialize)]
-struct VaultData { entries: Vec<VaultEntry> }
+pub(crate) struct VaultData { pub(crate) entries: Vec<VaultEntry> }
 
 #[derive(Serialize, Deserialize)]
 struct Envelope { version: u8, salt: Vec<u8>, nonce: Vec<u8>, ciphertext: Vec<u8> }
 
 #[derive(Default)]
-pub struct VaultSession { key: Option<Zeroizing<Vec<u8>>>, salt: Option<Vec<u8>>, data: Option<VaultData> }
+pub struct VaultSession { pub(crate) key: Option<Zeroizing<Vec<u8>>>, pub(crate) salt: Option<Vec<u8>>, pub(crate) data: Option<VaultData> }
 
 fn vault_path(app: &AppHandle) -> Result<PathBuf, String> {
     let dir = app.path().app_data_dir().map_err(|e| e.to_string())?;
@@ -65,6 +65,8 @@ fn persist(app: &AppHandle, data: &VaultData, key: &[u8], salt: Vec<u8>) -> Resu
     fs::write(&tmp, bytes).map_err(|e| e.to_string())?;
     fs::rename(tmp, path).map_err(|e| e.to_string())
 }
+
+pub(crate) fn persist_from_bridge(app: &AppHandle, data: &VaultData, key: &[u8], salt: Vec<u8>) -> Result<(), String> { persist(app, data, key, salt) }
 
 #[tauri::command]
 pub fn vault_exists(app: AppHandle) -> Result<bool, String> { Ok(vault_path(&app)?.exists()) }

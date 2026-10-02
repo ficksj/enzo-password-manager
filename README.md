@@ -67,6 +67,20 @@ The project is local-first. No account or cloud sync is required.
 
 Enzo is an early Windows desktop release. The core vault, tray workflow, PIN unlock, Windows Hello, generator, clipboard cleanup, and installer pipeline are implemented. Browser bridge and automatic form filling are planned next.
 
+## Browser extension preview
+
+The `extension/` directory contains a Chrome/Edge Manifest V3 companion. It connects to Enzo over the local bridge at `127.0.0.1:48152` and supports matching credentials, autofill, saving credentials through the bridge API, and password generation.
+
+### Load locally
+
+1. Start and unlock Enzo.
+2. Open **Settings → Local bridge** and copy the extension token.
+3. Open `chrome://extensions` or `edge://extensions`.
+4. Enable **Developer mode** and select **Load unpacked**.
+5. Choose the repository `extension/` directory and paste the token into the Enzo extension popup.
+
+The browser extension is an early companion preview. It only receives credentials while the Enzo vault is unlocked.
+
 ## License
 
 Enzo is released under the [MIT License](LICENSE).

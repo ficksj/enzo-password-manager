@@ -1,4 +1,5 @@
 mod vault;
+mod bridge;
 
 #[cfg(target_os = "windows")]
 mod windows_hello;
@@ -63,8 +64,11 @@ pub fn run() {
             windows_hello::windows_hello_enabled,
             vault::unlock_with_windows_hello,
             vault::enable_windows_hello,
+            bridge::bridge_token,
         ])
         .setup(|app| {
+            let bridge_token = bridge::start(&app.handle())?;
+            app.manage(std::sync::Arc::new(bridge::BridgeState { token: bridge_token }));
             let show = MenuItem::with_id(app, "show", "Открыть Enzo", true, None::<&str>)?;
             let lock = MenuItem::with_id(app, "lock", "Заблокировать", true, None::<&str>)?;
             let quit = MenuItem::with_id(app, "quit", "Выйти", true, None::<&str>)?;

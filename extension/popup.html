@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><title>Enzo Passwords</title><link rel="stylesheet" href="popup.css" /></head>
+  <body>
+    <header><div class="brand"><span>E</span> enzo</div><div class="status" id="status">BRIDGE OFFLINE</div></header>
+    <main>
+      <section id="setup" class="setup hidden"><p class="eyebrow">FIRST CONNECTION</p><h1>Connect to Enzo</h1><p>Open Enzo on Windows, unlock your vault, then paste the bridge token from Settings.</p><input id="token" type="password" placeholder="Bridge token" /><button id="save-token">Connect bridge</button></section>
+      <section id="app" class="hidden"><div class="context"><div><span class="eyebrow">CURRENT SITE</span><strong id="domain">Checking...</strong></div><button id="refresh" title="Refresh">↻</button></div><div id="locked" class="notice hidden">Unlock Enzo to access your passwords.</div><div id="empty" class="empty hidden"><span>⌁</span><strong>No matching logins</strong><small>Save a credential or generate a new password.</small></div><div id="entries" class="entries"></div><button class="generate" id="generate">✳ Generate secure password</button><section id="generated" class="generated hidden"><div><span id="password"></span><button id="copy">Copy</button></div><small id="strength">Strong password</small></section></section>
+    </main>
+    <footer><a href="http://127.0.0.1:48152/health">Bridge status</a><span>Enzo for Windows</span></footer>
+    <script src="popup.js"></script>
+  </body>
+</html>
