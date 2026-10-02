@@ -79,7 +79,7 @@ The `extension/` directory contains a Chrome/Edge Manifest V3 companion. It conn
 4. Enable **Developer mode** and select **Load unpacked**.
 5. Choose the repository `extension/` directory and paste the token into the Enzo extension popup.
 
-The browser extension is an early companion preview. It only receives credentials while the Enzo vault is unlocked.
+The browser extension is an early companion preview. It only receives credentials while the Enzo vault is unlocked. When a login form is submitted, it can offer to save the new credential back into Enzo.
 
 ## License
 
