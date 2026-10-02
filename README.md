@@ -65,7 +65,7 @@ The project is local-first. No account or cloud sync is required.
 
 ## Project status
 
-Enzo is an early Windows desktop release. The core vault, tray workflow, PIN unlock, Windows Hello, generator, clipboard cleanup, and installer pipeline are implemented. Browser bridge and automatic form filling are planned next.
+Enzo is an early Windows desktop release. The core vault, tray workflow, PIN unlock, Windows Hello, generator, clipboard cleanup, browser bridge, autofill, save prompt, and installer pipeline are implemented.
 
 ## Browser extension preview
 
