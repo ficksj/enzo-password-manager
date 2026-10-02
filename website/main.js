@@ -27,11 +27,11 @@ const translations = {
   }
 }
 
-const languageButtons = document.querySelectorAll('[data-language]')
 const setLanguage = (language) => {
-  const t = translations[language]
-  document.documentElement.lang = language
-  document.title = language === 'ru' ? 'Enzo — Ваши пароли всегда под рукой' : 'Enzo — Your passwords. Close at hand.'
+  const selectedLanguage = translations[language] ? language : 'en'
+  const t = translations[selectedLanguage]
+  document.documentElement.lang = selectedLanguage
+  document.title = selectedLanguage === 'ru' ? 'Enzo — Ваши пароли всегда под рукой' : 'Enzo — Your passwords. Close at hand.'
   const set = (selector, value) => { const element = document.querySelector(selector); if (element) element.innerHTML = value }
   set('.desktop-nav a:nth-child(1)', t.nav[0]); set('.desktop-nav a:nth-child(2)', t.nav[1]); set('.desktop-nav a:nth-child(3)', t.nav[2]); set('.header-download', `${t.nav[3]} <span>↗</span>`)
   set('.hero h1', t.hero[0]); set('.hero-description', t.hero[1]); set('.hero .button-primary', `<span class="windows-mark">⊞</span> ${t.hero[2]} <span class="button-arrow">↗</span>`); set('.hero .button-quiet', `${t.hero[3]} <span>→</span>`)
@@ -43,11 +43,14 @@ const setLanguage = (language) => {
   set('.download-content .section-kicker', t.download[0]); set('.download-content h2', t.download[1]); set('.download-content>p:not(.section-kicker)', t.download[2]); set('.download-content .button-primary', `<span class="windows-mark">⊞</span> ${t.download[3]} <span class="button-arrow">↗</span>`); set('.msi-link', `${t.download[4]} <span>→</span>`)
   set('.faq-section .section-kicker', t.faq[0]); set('.faq-section h2', t.faq[1]); document.querySelectorAll('.faq-list details').forEach((item, index) => { item.querySelector('summary').childNodes[0].textContent = t.faq[2][index][0]; item.querySelector('p').textContent = t.faq[2][index][1] })
   set('.footer-note', t.footer[0]); set('.site-footer>div a:nth-child(1)', t.footer[1]); set('.site-footer>div a:nth-child(2)', t.footer[2]); set('.site-footer>div a:nth-child(3)', t.footer[3]); set('.site-footer>small', t.footer[4])
-  languageButtons.forEach((button) => button.classList.toggle('active', button.dataset.language === language))
-  localStorage.setItem('enzo-language', language)
+  document.querySelectorAll('[data-language]').forEach((button) => button.classList.toggle('active', button.dataset.language === selectedLanguage))
+  localStorage.setItem('enzo-language', selectedLanguage)
 }
 
-languageButtons.forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.language)))
+document.addEventListener('click', (event) => {
+  const button = event.target.closest('[data-language]')
+  if (button) setLanguage(button.dataset.language)
+})
 setLanguage(localStorage.getItem('enzo-language') || 'en')
 
 fetch('https://api.github.com/repos/ficksj/enzo-password-manager/releases/latest')
