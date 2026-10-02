@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Enzo Passwords",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Private browser companion for the Enzo Windows password manager.",
   "permissions": ["activeTab", "storage", "tabs", "scripting"],
   "host_permissions": ["http://127.0.0.1:48152/*", "http://localhost:48152/*"],
