@@ -1,0 +1,15 @@
+node_modules/
+dist/
+src-tauri/target/
+src-tauri/gen/
+*.log
+.env
+.env.*
+!.env.example
+*.vault
+*.enzo
+*.bak
+*.tmp
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
