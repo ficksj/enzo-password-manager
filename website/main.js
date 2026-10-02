@@ -7,6 +7,13 @@ const translations = {
     meta: ['Windows 10 / 11', 'No account required', 'Open source'],
     trust: ['Encrypted on your device', 'Unlocked by you', 'No cloud, no account', 'YOUR KEYS STAY YOURS <span>↗</span>'],
     intro: ['A BETTER PLACE FOR YOUR PASSWORDS', 'Everything you need.<br /><span>Nothing you don\'t.</span>', 'Enzo keeps your everyday credentials organized, protected, and one click away, without getting in your way.'],
+    cards: [
+      ['01 / VAULT', 'Your vault, just yours.', 'Every password is encrypted locally before it touches disk. No account, no cloud copy, no one else holding the keys.', ['ARGON2ID', 'AES-256-GCM', 'LOCAL-FIRST']],
+      ['02 / QUICK ACCESS', 'There when you need it.', 'A compact flyout from your system tray stays above your work, then slips away when you\'re done.', ['WINDOWS TRAY', 'ALWAYS ON TOP']],
+      ['03 / UNLOCK', 'A touch, and you\'re in.', 'Unlock with your Enzo PIN or use Windows Hello for device-bound biometric access.', ['WINDOWS HELLO', 'PIN FALLBACK']],
+      ['04 / GENERATOR', 'Strong by default.', 'Generate secure, random passwords and tune length and character sets to fit every sign-up form.', ['8–64 CHARACTERS', 'CRYPTOGRAPHIC RNG']],
+      ['05 / CLIPBOARD', 'Copy. Paste. Gone.', 'Copied passwords can be cleared automatically after your chosen interval to reduce exposure.', ['CONFIGURABLE TIMER', '15 SEC DEFAULT']]
+    ],
     security: ['SECURITY IS THE FOUNDATION', 'Private isn\'t a setting.<br /><span>It\'s the architecture.</span>', 'Enzo is designed to keep the vault on your Windows device. Your PIN derives the encryption key; Windows Hello can protect a device-bound copy for convenient unlock.', 'Read the security model'],
     steps: ['GETTING STARTED', 'Set up in a moment.', [['Create your vault', 'Choose a PIN. Enzo creates your encrypted local vault.'], ['Add your logins', 'Save websites, apps, and secure notes in one private place.'], ['Stay in your flow', 'Open Enzo from the tray, copy what you need, and get back to work.']]],
     download: ['YOUR DESKTOP. YOUR VAULT.', 'Keep Enzo<br />close at hand.', 'Get the latest Windows release and take your passwords back to local.', 'Download for Windows', 'Need MSI? View all downloads'],
@@ -19,6 +26,13 @@ const translations = {
     meta: ['Windows 10 / 11', 'Без аккаунта', 'Открытый исходный код'],
     trust: ['Зашифровано на устройстве', 'Доступ только для вас', 'Без облака и аккаунта', 'ВАШИ КЛЮЧИ — ВАШИ <span>↗</span>'],
     intro: ['ЛУЧШЕЕ МЕСТО ДЛЯ ВАШИХ ПАРОЛЕЙ', 'Всё необходимое.<br /><span>Ничего лишнего.</span>', 'Enzo хранит ваши доступы организованно, безопасно и в одном клике, не мешая рабочему процессу.'],
+    cards: [
+      ['01 / VAULT', 'Ваш vault — только ваш.', 'Каждый пароль шифруется локально до записи на диск. Без аккаунта, облачной копии и третьих лиц с доступом к ключам.', ['ARGON2ID', 'AES-256-GCM', 'ТОЛЬКО ЛОКАЛЬНО']],
+      ['02 / БЫСТРЫЙ ДОСТУП', 'Всегда под рукой.', 'Компактная панель открывается из системного трея поверх работы и исчезает, когда вы закончили.', ['СИСТЕМНЫЙ ТРЕЙ', 'ПОВЕРХ ОКОН']],
+      ['03 / РАЗБЛОКИРОВКА', 'Одно касание — и вы внутри.', 'Откройте Enzo с PIN-кодом или используйте Windows Hello для биометрического доступа устройства.', ['WINDOWS HELLO', 'РЕЗЕРВНЫЙ PIN']],
+      ['04 / ГЕНЕРАТОР', 'Надёжность по умолчанию.', 'Создавайте случайные пароли и настраивайте длину и наборы символов под любую форму регистрации.', ['8–64 СИМВОЛА', 'КРИПТОГРАФИЧЕСКИЙ RNG']],
+      ['05 / БУФЕР ОБМЕНА', 'Скопировали. Вставили. Готово.', 'Скопированные пароли можно автоматически удалять через выбранный интервал, снижая риск раскрытия.', ['НАСТРАИВАЕМЫЙ ТАЙМЕР', '15 СЕК. ПО УМОЛЧАНИЮ']]
+    ],
     security: ['БЕЗОПАСНОСТЬ — ОСНОВА', 'Приватность — не настройка.<br /><span>Это архитектура.</span>', 'Enzo хранит vault на вашем Windows-устройстве. PIN формирует ключ шифрования, а Windows Hello защищает привязанную к устройству копию для быстрого входа.', 'Модель безопасности'],
     steps: ['БЫСТРЫЙ СТАРТ', 'Настройка за минуту.', [['Создайте хранилище', 'Придумайте PIN. Enzo создаст локальный зашифрованный vault.'], ['Добавьте доступы', 'Сохраните сайты, приложения и защищённые заметки в одном месте.'], ['Работайте спокойно', 'Откройте Enzo из трея, скопируйте нужное и вернитесь к работе.']]],
     download: ['ВАШ РАБОЧИЙ СТОЛ. ВАШ VAULT.', 'Держите Enzo<br />под рукой.', 'Скачайте последнюю версию для Windows и верните пароли в локальное хранилище.', 'Скачать для Windows', 'Нужен MSI? Все загрузки'],
@@ -38,6 +52,27 @@ const setLanguage = (language) => {
   document.querySelectorAll('.hero-meta span').forEach((element, index) => { element.innerHTML = `<i></i> ${t.meta[index]}` })
   document.querySelectorAll('.trust-strip>div').forEach((element, index) => { if (index < 3) element.querySelector('span:last-child').textContent = t.trust[index]; else element.innerHTML = t.trust[index] })
   set('.section-intro .section-kicker', t.intro[0]); set('.section-intro h2', t.intro[1]); set('.section-side-copy', t.intro[2])
+  document.querySelectorAll('.feature-card').forEach((card, index) => {
+    const content = t.cards[index]
+    if (!content) return
+    const topline = card.querySelector('.feature-topline span:first-child')
+    const title = card.querySelector('h3')
+    const copy = card.querySelector('p')
+    if (topline) topline.textContent = content[0]
+    if (title) title.textContent = content[1]
+    if (copy) copy.textContent = content[2]
+    card.querySelectorAll('.feature-foot span').forEach((badge, badgeIndex) => { badge.textContent = content[3][badgeIndex] })
+  })
+  const visualLabels = t.cards.map((card) => card[0])
+  const cardVisualText = t === translations.ru
+    ? ['Скопировать пароль', 'ПРОВЕРЕНО', 'СИЛЬНЫЙ', 'Длина', 'Пароль скопирован', 'Буфер очищается автоматически']
+    : ['Copy password', 'VERIFIED', 'STRONG', 'Length', 'Password copied', 'Clipboard clears automatically']
+  const trayButton = document.querySelector('.tray-button'); if (trayButton) trayButton.textContent = cardVisualText[0]
+  const helloAuth = document.querySelector('.hello-auth'); if (helloAuth) helloAuth.childNodes[0].textContent = `${cardVisualText[1]} `
+  const generatorMeter = document.querySelector('.generator-meter b'); if (generatorMeter) generatorMeter.textContent = cardVisualText[2]
+  const generatorLength = document.querySelector('.generator-controls span'); if (generatorLength) generatorLength.childNodes[0].textContent = `${cardVisualText[3]} `
+  const clipboardText = document.querySelector('.clipboard-row span:nth-child(2)'); if (clipboardText) clipboardText.textContent = cardVisualText[4]
+  const clipboardClear = document.querySelector('.clipboard-clear span'); if (clipboardClear) clipboardClear.textContent = cardVisualText[5]
   set('.security-copy .section-kicker', t.security[0]); set('.security-copy h2', t.security[1]); set('.security-copy>p:not(.section-kicker)', t.security[2]); set('.security-copy .text-link', `${t.security[3]} <span>↗</span>`)
   set('.steps-heading .section-kicker', t.steps[0]); set('.steps-heading h2', t.steps[1]); document.querySelectorAll('.steps-grid article').forEach((article, index) => { article.querySelector('h3').textContent = t.steps[2][index][0]; article.querySelector('p').textContent = t.steps[2][index][1] })
   set('.download-content .section-kicker', t.download[0]); set('.download-content h2', t.download[1]); set('.download-content>p:not(.section-kicker)', t.download[2]); set('.download-content .button-primary', `<span class="windows-mark">⊞</span> ${t.download[3]} <span class="button-arrow">↗</span>`); set('.msi-link', `${t.download[4]} <span>→</span>`)
