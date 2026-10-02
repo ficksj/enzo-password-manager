@@ -1,0 +1,52 @@
+name: Build Windows Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and publish Windows installers
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable-x86_64-pc-windows-msvc
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and publish release
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: ${{ github.ref_name }}
+          releaseName: 'Enzo ${{ github.ref_name }}'
+          releaseBody: |
+            ## Enzo ${{ github.ref_name }}
+
+            Local-first Windows password manager with an encrypted vault, Windows Hello, tray flyout, and password generator.
+
+            ### Install
+
+            - Use the NSIS setup executable for a standard installation.
+            - Use the MSI package for managed Windows deployment.
+          releaseDraft: false
+          prerelease: false
