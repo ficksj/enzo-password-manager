@@ -67,6 +67,13 @@ The project is local-first. No account or cloud sync is required.
 
 Enzo is an early Windows desktop release. The core vault, tray workflow, PIN unlock, Windows Hello, generator, clipboard cleanup, browser bridge, autofill, save prompt, and installer pipeline are implemented.
 
+## Release history
+
+- **v0.2.2**: styled desktop scrollbar, fixed password strength states, added RU/EN switching inside the app, and aligned flyout navigation and entry controls.
+- **v0.2.1**: added login-form detection, save-to-Enzo prompt, improved autofill field matching, and the MV3 background bridge worker.
+- **v0.2.0**: added the Chrome/Edge companion extension, local bridge API, domain matching, autofill, and browser password generation.
+- **v0.1.0**: first release with encrypted vault, Windows Hello, tray flyout, generator, clipboard cleanup, and Windows installers.
+
 ## Browser extension preview
 
 The `extension/` directory contains a Chrome/Edge Manifest V3 companion. It connects to Enzo over the local bridge at `127.0.0.1:48152` and supports matching credentials, autofill, saving credentials through the bridge API, and password generation.

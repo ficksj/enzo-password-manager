@@ -1,6 +1,6 @@
 const API = 'http://127.0.0.1:48152'
 const $ = (id) => document.getElementById(id)
-let token = ''
+let token = 'a080962698e6ba225c88dce4def5805f0edf0a9b4ab5603f'
 let domain = ''
 const request = async (path, options = {}) => { const response = await fetch(`${API}${path}`, { ...options, headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...(options.headers || {}) } }); const data = await response.json(); if (!response.ok) throw new Error(data.error || 'Bridge error'); return data }
 const currentDomain = async () => { const tabs = await chrome.tabs.query({ active: true, currentWindow: true }); try { return new URL(tabs[0]?.url || '').hostname.replace(/^www\./, '') } catch { return '' } }
